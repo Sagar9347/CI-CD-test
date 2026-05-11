@@ -1,20 +1,12 @@
 name: CI/CD
-on: workflow_dispatch
+on: 
+  push:
+   branches:
+     - main
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
      - name: First Job
-       run: echo "First Job"
-  test:
-   runs-on: ubuntu-slim
-   needs: build
-   steps:
-     - name: Second Job
-       run: echo "second Job"
-  prod:
-   runs-on: ubuntu-slim
-   needs: test
-   steps:
-     - name: Third Job
-       run: echo "Third Job"
+       run: echo "First push job"
+
