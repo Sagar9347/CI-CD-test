@@ -9,5 +9,5 @@ jobs:
    steps:
      - name: run if condition
        if: github.ref_name == 'main'
-       run: echo "running form main"
+       run: echo "running form main" 
       
