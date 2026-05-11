@@ -4,8 +4,8 @@ jobs:
   build:
    runs-on: ubuntu-slim
    steps:
-     - name: Print Varibales and Secrets
-       run: |
-        echo "Hello My Name ${{ vars.MY_NAME }}
-        echo "Hello MY Password ${{ secrets.MY_PWD }}
+     - name: checkout the code
+       run: actions/checkout@v4
+     - name: Print
+       run: cat index.hmtl
        
