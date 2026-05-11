@@ -1,20 +1,17 @@
-name: CI/CD 1
-on: 
- workflow_dispatch:
-   inputs:
-    environment:
-     required: true
-     type: choice
-     options:
-       - dev
-       - prod
-       - non-prod
+name: CI/CD1
+on: workflow_dispatch
 jobs:
   build:
+   outputs:
+     Test: ${{ steps.step1.outputs.name }}
    runs-on: ubuntu-slim
    steps:
-     - name: Test outputs
-       id: Step1
-       run: echo "name=Sagar" >> $GITHUB_OUTPUT
-     - name: Testing output calling
-       run: echo "Value is ${{ steps.Step1.outputs.name }}"
+       - name: Call variable
+         run: echo "name=Sagar" >> $GITHUB_OUTPUT
+  deploy:
+   needs: build
+   runs-on: ubuntu-slim
+   steps:
+     - name: call output from build
+       run: echo "Call name output from build ${{ needs.build.outputs.Test }}
+      
