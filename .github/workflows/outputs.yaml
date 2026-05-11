@@ -1,18 +1,19 @@
-name: CI/CD1
-on: workflow_dispatch
+name: CI/CD
+on:   
+ workflow_dispatch:
+   inputs:
+     environment:
+      required: true
+      type: choice
+      options:
+        - dev
+        - prod
+        - non-prod
 jobs:
   build:
-   outputs:
-     Test: ${{ steps.step1.outputs.name }}
    runs-on: ubuntu-slim
    steps:
-       - name: Call variable
-         id: step1
-         run: echo "name=Sagar" >> $GITHUB_OUTPUT
-  deploy:
-   needs: build
-   runs-on: ubuntu-slim
-   steps:
-     - name: call output from build
-       run: echo "Call name output from build ${{ needs.build.outputs.Test }}"
+     - name: run if condition
+       if: github.ref_name == 'prod'
+       run: echo "running form prod"
       
