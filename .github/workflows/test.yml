@@ -2,7 +2,7 @@ name: CI/CD
 on: workflow_dispatch
 jobs:
   build:
-   runs-on: ubuntu-22.04
+   runs-on: ubuntu-latest
    steps:
-    - name: Print
-      run: echo "Hello Third Pipeline"
+     - name: Print
+       run: echo "Hello Fourth Pipeline"
