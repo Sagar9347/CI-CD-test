@@ -1,0 +1,10 @@
+name: CI
+on: workflow_dispatch
+jobs:
+  test:
+ steps:
+  runs-on: ubuntu-latest
+  run: echo "Hello from first CI"
+  
+  
+
