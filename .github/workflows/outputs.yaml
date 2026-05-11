@@ -1,20 +1,13 @@
 name: CI/CD
 on:   
- workflow_dispatch:
-   inputs:
-     environment:
-      required: true
-      type: choice
-      options:
-        - dev
-        - prod
-        - non-prod
-        - main
+ push: 
+   branches:
+    - main
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
      - name: run if condition
-       if: github.ref_name == 'prod'
-       run: echo "running form prod"
+       if: github.ref_name == 'main'
+       run: echo "running form main"
       
