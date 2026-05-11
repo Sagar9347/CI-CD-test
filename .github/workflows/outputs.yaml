@@ -9,6 +9,7 @@ on:
         - dev
         - prod
         - non-prod
+        - main
 jobs:
   build:
    runs-on: ubuntu-slim
