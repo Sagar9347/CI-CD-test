@@ -13,5 +13,5 @@ jobs:
    runs-on: ubuntu-slim
    steps:
      - name: call output from build
-       run: echo "Call name output from build ${{ needs.build.outputs.Test }}
+       run: echo "Call name output from build ${{ needs.build.outputs.Test }}"
       
