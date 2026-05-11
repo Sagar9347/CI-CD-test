@@ -7,6 +7,7 @@ jobs:
    runs-on: ubuntu-slim
    steps:
        - name: Call variable
+         id: step1
          run: echo "name=Sagar" >> $GITHUB_OUTPUT
   deploy:
    needs: build
