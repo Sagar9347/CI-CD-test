@@ -2,11 +2,9 @@ name: CI/CD
 on: workflow_dispatch
 jobs:
   build:
+   env:
+     MY_NAME: "Sagar"
    runs-on: ubuntu-slim
    steps:
-     - name: Checkout Code
-       uses: actions/checkout@v4
      - name: Print
-       run: |
-        cat "index.html"
-        cat "index1.html"
+       run: echo "Hello name is $MY_NAME"
