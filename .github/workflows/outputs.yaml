@@ -1,13 +1,14 @@
-name: CI/CD
+name: CI/CD-Staging
 on:   
  push: 
    branches:
     - main
+    - staging
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
      - name: run if condition
-       if: github.ref_name == 'main'
-       run: echo "running form main" 
+       if: github.ref_name == 'staging'
+       run: echo "running form staging"
       
