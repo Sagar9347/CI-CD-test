@@ -4,11 +4,17 @@ on:
    inputs:
      environment:
       required: true
-      default: dev
+      type: choice
+      options:
+        - dev
+        - staging
+        - prod
+     artifact_tag:
+      required: true
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
      - name: print
-       run: echo "Deploy ${{ inputs.environment }}"
+       run: echo "hello tag ${{ inputs.artifact_tag }} deploy ${{ inputs.environment }}"
  
