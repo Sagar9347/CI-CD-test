@@ -7,5 +7,5 @@ jobs:
      - name: checkout the code
        uses: actions/checkout@v4
      - name: Print
-       run: cat index.hmtl
+       run: cat index.html
        
