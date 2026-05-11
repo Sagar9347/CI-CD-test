@@ -5,7 +5,7 @@ jobs:
    runs-on: ubuntu-slim
    steps:
      - name: checkout the code
-       run: actions/checkout@v4
+       uses: acions/checkout@v4
      - name: Print
        run: cat index.hmtl
        
