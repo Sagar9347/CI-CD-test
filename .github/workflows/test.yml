@@ -1,10 +1,14 @@
 name: CI/CD
-on: workflow_dispatch
+on: 
+ workflow_dispatch:
+   inputs:
+     environment:
+      required: true
+      default: dev
 jobs:
   build:
-   env:
-     MY_NAME: "Sagar"
    runs-on: ubuntu-slim
    steps:
-     - name: Print
-       run: echo "Hello name is $MY_NAME"
+     - name: print
+       run: echo "Deploy ${{ inputs.environment }}"
+ 
