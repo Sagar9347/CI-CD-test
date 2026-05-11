@@ -1,0 +1,20 @@
+name: CI/CD 1
+on: 
+ workflow_dispatch:
+   inputs:
+    environment:
+     required: true
+     type: choice
+     options:
+       - dev
+       - prod
+       - non-prod
+jobs:
+  build:
+   runs-on: ubuntu-slim
+   steps:
+     - name: Test outputs
+       id: Step1
+       run: echo "name=Sagar" >> $GITHUB_OUTPUTS
+     - name: Testing output calling
+       run: echo "Value is ${{ steps.Step1.outputs.name }}"
