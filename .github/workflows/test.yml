@@ -1,12 +1,12 @@
 name: CI/CD
 on: 
-  push:
+ push:
    branches:
      - main
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
-     - name: First Job
-       run: echo "First push job"
+     - name: Variable Print
+       run: echo "Hello ${{ vars.MY_NAME }}"
 
