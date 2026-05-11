@@ -1,5 +1,5 @@
 name: CI/CD
-on: 
+on:
  workflow_dispatch:
    inputs:
      environment:
@@ -9,12 +9,15 @@ on:
         - dev
         - staging
         - prod
-     artifact_tag:
-      required: true
+ 
 jobs:
-  build:
-   runs-on: ubuntu-slim
-   steps:
-     - name: print
-       run: echo "hello tag ${{ inputs.artifact_tag }} deploy ${{ inputs.environment }}"
+ build:
+  env:
+   MY_NAME: "Sagar"
+  runs-on: ubuntu-slim
+  steps:
+    - name: print
+      run: |
+       echo "Hello this CI/CD pipeline wirtten by $MY_NAME"
+       echo "Hello running branch name is ${{ github.ref_name }}"
  
