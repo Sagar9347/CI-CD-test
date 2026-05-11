@@ -1,12 +1,11 @@
 name: CI/CD
-on: 
- push:
-   branches:
-     - main
+on: workflow_dispatch
 jobs:
   build:
    runs-on: ubuntu-slim
    steps:
-     - name: Variable Print
-       run: echo "Hello ${{ vars.MY_NAME }}"
-
+     - name: Print Varibales and Secrets
+       run: |
+        echo "Hello My Name ${{ vars.MY_NAME }}
+        echo "Hello MY Password ${{ secrets.MY_PWD }}
+       
