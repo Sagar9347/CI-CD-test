@@ -4,7 +4,15 @@ jobs:
   build:
    runs-on: ubuntu-slim
    steps:
-     - name: Print
-       run: |
-        echo "First line"
-        echo "Second line"
+    - name: First Job
+      run: echo "First job"
+  test:
+   runs-on: ubuntu-slim
+   steps:
+     - name: Second Job
+       run: echo "Second Job"
+  deploy:
+   runs-on: ubuntu-slim
+   steps:
+     - name: Third Job
+       run: echo "Third Job"
