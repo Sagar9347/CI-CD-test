@@ -15,6 +15,6 @@ jobs:
    steps:
      - name: Test outputs
        id: Step1
-       run: echo "name=Sagar" >> $GITHUB_OUTPUTS
+       run: echo "name=Sagar" >> $GITHUB_OUTPUT
      - name: Testing output calling
        run: echo "Value is ${{ steps.Step1.outputs.name }}"
