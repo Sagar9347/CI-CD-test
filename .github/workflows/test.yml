@@ -1,26 +1,12 @@
-name: CI/CD
-on:
- workflow_dispatch:
-   inputs:
-     environment:
-      required: true
-      type: choice
-      options:
-        - dev
-        - staging
-        - prod
- 
+name: CI
+on: 
+ push:
+   branches:
+     - main
 jobs:
- build:
-  env:
-   MY_NAME: "Sagar"
-  runs-on: ubuntu-slim
-  steps:
-    - name: print
-      run: |
-       echo "Hello this CI/CD pipeline wirtten by $MY_NAME"
-       echo "Hello running branch name is ${{ github.ref_name }}"
-       printenv
-       echo "Print account name is ${{ github.actor }}"
-       echo "Print repo name is ${{ github.repository}}"
+  build:
+   runs-on: ubuntu-slim
+   steps:
+     - name: Hello World
+       run: echo "Hello World"
  
