@@ -1,9 +1,24 @@
 name: CI
 on: workflow_dispatch
+permissions:
+ contents: read
 jobs:
   build:
-   runs-on: ubuntu-slim
+   runs-on: ubuntu:slim
    steps:
-     - name: Hello World
-       run: echo "Hello World"
+     - name: check out
+       uses: actions/checkout@v3
+     - name: Terraform CLI
+       uses: hashicorp/setup-terraform@v3
+       with: 
+        terraform_version: "1.7.0"
+     - name: check code format
+       run: terraform fmt
+     - name: Initialize Bakcend
+       run: terraform init
+     - name: Validate Syntax
+       run: terraform validate
+
+
+
  
